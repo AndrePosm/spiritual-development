@@ -5,7 +5,7 @@ function Courses() {
   const [selectedCourse, setSelectedCourse] = useState('');
   const [response, setResponse] = useState('');
 
-  const handleSelectChange = async (event) => {
+  const handleCourseSelect = async (event) => {
     const selectedValue = event.target.value;
     setSelectedCourse(selectedValue);
 
@@ -39,9 +39,9 @@ function Courses() {
 
   return (
     <div>
-      <h2>Choose Your Spiritual Development Course</h2>
-      <select value={selectedCourse} onChange={handleSelectChange}>
-        <option value="">-- Select a Course --</option>
+      <h2>Select a Course</h2>
+      <select value={selectedCourse} onChange={handleCourseSelect}>
+        <option value="">-- Choose a Course --</option>
         <option value="Physical Harmony">Physical Harmony</option>
         <option value="Breathing Practices">Breathing Practices</option>
         <option value="Soul Healing">Soul Healing</option>
