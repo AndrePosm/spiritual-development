@@ -7,7 +7,7 @@ export const getGPTResponse = async (prompt) => {
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
       {
-        model: 'gpt-4',  // Можно использовать 'gpt-3.5-turbo', если нужно
+        model: 'gpt-4',
         messages: [
           { role: 'system', content: 'You are a helpful assistant.' },
           { role: 'user', content: prompt }

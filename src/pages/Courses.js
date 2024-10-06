@@ -1,58 +1,43 @@
 import React, { useState } from 'react';
-import { getGPTResponse } from '../services/openaiService'; // Импорт функции для работы с API
+import { MenuItem, FormControl, Select, InputLabel, Button, Box } from '@mui/material';
 
 function Courses() {
   const [selectedCourse, setSelectedCourse] = useState('');
-  const [response, setResponse] = useState('');
 
-  const handleCourseSelect = async (event) => {
-    const selectedValue = event.target.value;
-    setSelectedCourse(selectedValue);
-
-    let prompt = '';
-
-    switch (selectedValue) {
-      case 'Physical Harmony':
-        prompt = 'Provide a brief tip for achieving physical harmony in training and nutrition.';
-        break;
-      case 'Breathing Practices':
-        prompt = 'Give a short guide on how to start daily breathing exercises to reduce stress.';
-        break;
-      case 'Soul Healing':
-        prompt = 'Share a quick spiritual healing tip for emotional well-being.';
-        break;
-      case 'Overcoming Panic Attacks':
-        prompt = 'Provide a short technique to help manage panic attacks.';
-        break;
-      default:
-        prompt = 'Give me a short tip for spiritual development.';
-        break;
-    }
-
-    try {
-      const gptResponse = await getGPTResponse(prompt);
-      setResponse(`${gptResponse} \n\n For a personalized plan, GET A HUG to receive individual recommendations.`);
-    } catch (error) {
-      setResponse('Error fetching the course recommendations.');
-    }
+  const handleSelectChange = (event) => {
+    setSelectedCourse(event.target.value);
   };
 
   return (
-    <div>
-      <h2>Select a Course</h2>
-      <select value={selectedCourse} onChange={handleCourseSelect}>
-        <option value="">-- Choose a Course --</option>
-        <option value="Physical Harmony">Physical Harmony</option>
-        <option value="Breathing Practices">Breathing Practices</option>
-        <option value="Soul Healing">Soul Healing</option>
-        <option value="Overcoming Panic Attacks">Overcoming Panic Attacks</option>
-      </select>
+    <div style={{ textAlign: 'center', marginTop: '40px' }}>
+      <h2>Choose Your Spiritual Development Course</h2>
+
+      <FormControl variant="outlined" style={{ minWidth: 300, marginTop: '20px' }}>
+        <InputLabel id="course-label">Select a Course</InputLabel>
+        <Select
+          labelId="course-label"
+          value={selectedCourse}
+          onChange={handleSelectChange}
+          label="Select a Course"
+        >
+          <MenuItem value="">
+            <em>-- Choose a Course --</em>
+          </MenuItem>
+          <MenuItem value="Physical Harmony">Physical Harmony</MenuItem>
+          <MenuItem value="Breathing Practices">Breathing Practices</MenuItem>
+          <MenuItem value="Soul Healing">Soul Healing</MenuItem>
+          <MenuItem value="Overcoming Panic Attacks">Overcoming Panic Attacks</MenuItem>
+        </Select>
+      </FormControl>
 
       {selectedCourse && (
-        <div>
+        <Box textAlign="center" style={{ marginTop: '20px' }}>
           <h3>You selected: {selectedCourse}</h3>
-          <p>{response ? response : `Here you will find information about the ${selectedCourse} course.`}</p>
-        </div>
+          <p>Here you will find information about the {selectedCourse} course.</p>
+          <Button variant="contained" color="primary" size="large" style={{ marginTop: '20px' }}>
+            GET A HUG
+          </Button>
+        </Box>
       )}
     </div>
   );
