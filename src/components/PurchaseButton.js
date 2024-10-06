@@ -5,19 +5,20 @@ function PurchaseButton() {
   return (
     <Button
       variant="contained"
-      color="primary"
       sx={{
-        position: 'fixed',
-        top: '10px',
-        right: '10px',
-        padding: '10px 20px',
-        backgroundColor: '#007bff',
-        color: '#fff',
+        position: 'absolute',
+        top: '20px', // Расположение сверху
+        right: '20px', // Расположение справа
+        backgroundColor: '#5F9EA0', // Темный мятный цвет
+        color: 'white',
         '&:hover': {
-          backgroundColor: '#0056b3',
+          backgroundColor: '#4682B4', // Более насыщенный оттенок при наведении
         },
-        fontSize: '16px',
+        padding: '10px 20px',
+        fontWeight: 'bold',
         borderRadius: '8px',
+        fontSize: '16px',
+        boxShadow: '0 3px 5px rgba(0, 0, 0, 0.2)',
       }}
     >
       GET A HUG
