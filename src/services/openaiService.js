@@ -1,26 +1,29 @@
 import axios from 'axios';
 
-const openaiApiKey = process.env.REACT_APP_OPENAI_API_KEY;
-
 export const getGPTResponse = async (prompt) => {
+  const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+
   try {
     const response = await axios.post(
-        'https://api.openai.com/v1/completions',
-        {
-          model: 'gpt-3.5-turbo',
-          prompt: 'Give me advice on meditation',
-          max_tokens: 100,
+      'https://api.openai.com/v1/chat/completions',
+      {
+        model: 'gpt-4',  // Можно использовать 'gpt-3.5-turbo', если нужно
+        messages: [
+          { role: 'system', content: 'You are a helpful assistant.' },
+          { role: 'user', content: prompt }
+        ],
+        max_tokens: 100,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`,
         },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${openaiApiKey}`,
-          },
-        }
-      );
-    return response.data.choices[0].text.trim();
+      }
+    );
+    return response.data.choices[0].message.content.trim();
   } catch (error) {
     console.error('Error fetching the GPT response:', error);
-    throw error;
+    throw new Error('Error fetching the GPT response');
   }
 };
