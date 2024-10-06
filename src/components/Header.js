@@ -8,20 +8,14 @@ function Header() {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{ color: '#333' }}>
           Spiritual Development Program
         </Typography>
-        {/* Добавляем кнопку GET A HUG */}
         <Button
           variant="contained"
-          sx={{
-            backgroundColor: '#5F9EA0',
-            color: 'white',
-            '&:hover': {
-              backgroundColor: '#4682B4',
-            },
-            padding: '10px 20px',
-            fontWeight: 'bold',
-            borderRadius: '8px',
-            fontSize: '16px',
-            boxShadow: '0 3px 5px rgba(0, 0, 0, 0.2)',
+          style={{
+            backgroundColor: '#607d8b', // Цвет кнопки
+            color: '#fff',
+            borderRadius: '20px', // Округлые углы
+            padding: '5px 15px', // Немного меньше размер
+            fontSize: '0.875rem' // Уменьшенный размер текста
           }}
         >
           GET A HUG
