@@ -1,12 +1,11 @@
 import React from 'react';
-import Button from '@mui/material/Button';
+import ChampionButton from '../components/ChampionButton'; // Импортируем нашу новую кнопку
+
 function Home() {
   return (
     <div>
       <h2>Welcome to the Individual Spiritual Development Program</h2>
-      <Button variant="contained" color="primary">
-        BECOME A CHAMPION
-      </Button>
+      <ChampionButton /> {/* Используем кастомную кнопку */}
     </div>
   );
 }
