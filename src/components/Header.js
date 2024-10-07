@@ -14,9 +14,12 @@ function Header() {
             backgroundColor: '#607d8b', // Цвет кнопки
             color: '#fff',
             borderRadius: '20px', // Округлые углы
-            padding: '5px 15px', // Немного меньше размер
-            fontSize: '0.875rem' // Уменьшенный размер текста
+            padding: '5px 15px', // Размер кнопки
+            fontSize: '0.875rem', // Размер текста
+            transition: 'transform 0.3s ease', // Плавный переход
           }}
+          onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'} // Увеличение при наведении
+          onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}   // Возврат к исходному размеру
         >
           GET A HUG
         </Button>
