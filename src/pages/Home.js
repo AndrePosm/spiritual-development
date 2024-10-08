@@ -1,12 +1,18 @@
 import React from 'react';
-import Button from '@mui/material/Button';
+import ChampionButton from '../components/ChampionButton';
+
 function Home() {
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh', // Высота на весь экран для центрирования по вертикали
+      textAlign: 'center', // Выравнивание текста по центру
+    }}>
       <h2>Welcome to the Individual Spiritual Development Program</h2>
-      <Button variant="contained" color="primary">
-        BECOME A CHAMPION
-      </Button>
+      <ChampionButton />
     </div>
   );
 }

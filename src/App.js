@@ -7,14 +7,12 @@ import Home from './pages/Home';
 import Courses from './pages/Courses';
 import Reviews from './pages/Reviews';
 import FAQ from './pages/FAQ';
-import PurchaseButton from './components/PurchaseButton';
 
 function App() {
   return (
     <Router>
       <Header />
       <Sidebar />
-      <PurchaseButton />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
