@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Container } from '@mui/material';
-import ChampionButton from '../components/ChampionButton'; // Import ChampionButton
+import CoursesButton from '../components/CoursesButton'; // Import CoursesButton
 
 function Home() {
   return (
@@ -46,7 +46,7 @@ function Home() {
 
       {/* Centered Champion Button */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-        <ChampionButton />
+        <CoursesButton />
       </div>
     </Container>
   );
