@@ -31,7 +31,7 @@ function ChampionButton() {
           e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
         }}
       >
-        BECOME A CHAMPION
+        OUR COURSES
       </Button>
     </div>
   );
