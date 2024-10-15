@@ -11,7 +11,7 @@ function Home() {
       </Typography>
       
       {/* First Paragraph */}
-      <Typography variant="body1" align="center" paragraph style={{ fontSize: '1.5rem', color: '#666' }}>
+      <Typography variant="body1" align="left" paragraph style={{ fontSize: '1.5rem', color: '#666', textIndent: '20px' }}>
         In Swedish, the word <span style={{ fontWeight: 'bold', color: 'black' }}>“Lagom”</span> encapsulates the idea of 
         <span style={{ fontWeight: 'bold', color: 'black' }}> balance and moderation</span>. It’s often translated as 
         “just the right amount,” representing the perfect harmony between too much and too little. Rooted in Scandinavian culture, 
@@ -24,7 +24,7 @@ function Home() {
         Our Mission
       </Typography>
       
-      <Typography variant="body1" align="center" paragraph style={{ fontSize: '1.5rem', color: '#666' }}>
+      <Typography variant="body1" align="left" paragraph style={{ fontSize: '1.5rem', color: '#666', textIndent: '20px' }}>
         Our mission is to guide you on a journey towards a <span style={{ fontWeight: 'bold', color: 'black' }}>
         balanced, empowered life</span>. Our portal is dedicated to helping you cultivate 
         <span style={{ fontWeight: 'bold', color: 'black' }}> strength, practice mindful breathing, and achieve psychological clarity</span>. 
@@ -37,14 +37,14 @@ function Home() {
         Discover Your Flow
       </Typography>
       
-      <Typography variant="body1" align="center" paragraph style={{ fontSize: '1.5rem', color: '#666' }}>
+      <Typography variant="body1" align="left" paragraph style={{ fontSize: '1.5rem', color: '#666', textIndent: '20px' }}>
         Here, you’ll discover the <span style={{ fontWeight: 'bold', color: 'black' }}>tools</span> to harness your energy and align with 
         the <span style={{ fontWeight: 'bold', color: 'black' }}>natural rhythm of life</span>. Lagom Flow is more than a platform 
         — it’s a philosophy of living with intention, embracing balance, and <span style={{ fontWeight: 'bold', color: 'black' }}>
         finding your personal flow</span>.
       </Typography>
 
-      {/* Centered Champion Button */}
+      {/* Centered Courses Button */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
         <CoursesButton />
       </div>
