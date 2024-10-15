@@ -2,8 +2,8 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-// Define styles for the button in a more readable way
-const buttonStyles = {
+// Predefined styles for the button
+const standardPrimaryButtonStyles = {
   backgroundColor: '#333',
   color: '#fff',
   padding: '12px 24px',
@@ -17,29 +17,31 @@ const buttonStyles = {
   transition: 'transform 0.2s, box-shadow 0.2s',
 };
 
-// Event handler for mouse enter
-const onMouseEnterHandler = (event) => {
-  event.currentTarget.style.transform = 'translateY(-2px)';
-  event.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)';
+// Hover effect when mouse enters the button
+const applyHoverEffect = (e) => {
+  e.currentTarget.style.transform = 'translateY(-2px)';
+  e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)';
 };
 
-// Event handler for mouse leave
-const onMouseLeaveHandler = (event) => {
-  event.currentTarget.style.transform = 'translateY(0)';
-  event.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+// Reverting hover effect when mouse leaves the button
+const revertHoverEffect = (e) => {
+  e.currentTarget.style.transform = 'translateY(0)';
+  e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
 };
 
-const CoursesButton = () => (
-  <Button
-    variant="contained"
-    color="primary"
-    endIcon={<ArrowForwardIcon />}
-    style={buttonStyles} // Using predefined button styles
-    onMouseEnter={onMouseEnterHandler} // Applying hover effect
-    onMouseLeave={onMouseLeaveHandler} // Reverting hover effect
-  >
-    OUR COURSES
-  </Button>
-);
+const CoursesButton = () => {
+  return (
+    <Button
+      variant="contained"
+      color="primary"
+      endIcon={<ArrowForwardIcon />}
+      style={standardPrimaryButtonStyles}  // Using predefined button styles
+      onMouseEnter={applyHoverEffect}  // Applying hover effect
+      onMouseLeave={revertHoverEffect}  // Reverting hover effect
+    >
+      OUR COURSES
+    </Button>
+  );
+};
 
 export default CoursesButton;
