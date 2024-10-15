@@ -21,7 +21,7 @@ function Header() {
           onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'} // Увеличение при наведении
           onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}   // Возврат к исходному размеру
         >
-          GET A HUG
+          BECOME A CHAMPION
         </Button>
       </Toolbar>
     </AppBar>

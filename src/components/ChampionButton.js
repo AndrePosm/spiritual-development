@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-function ChampionButton() {
+function CoursesButton() {
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
       <Button
@@ -31,10 +31,10 @@ function ChampionButton() {
           e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
         }}
       >
-        BECOME A CHAMPION
+        OUR COURSES
       </Button>
     </div>
   );
 }
 
-export default ChampionButton;
+export default CoursesButton;
