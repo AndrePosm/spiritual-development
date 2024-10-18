@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Reviews() {
+function SuccessGuide() {
   return (
     <div>
       <h2>Student Reviews</h2>
@@ -9,4 +9,4 @@ function Reviews() {
   );
 }
 
-export default Reviews;
+export default SuccessGuide;
