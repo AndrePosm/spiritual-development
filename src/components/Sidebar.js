@@ -7,7 +7,7 @@ function Sidebar() {
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/courses">Courses</Link></li>
-        <li><Link to="/reviews">Reviews</Link></li>
+        <li><Link to="/success-guide">Success Guide</Link></li>
         <li><Link to="/faq">FAQ</Link></li>
       </ul>
     </nav>

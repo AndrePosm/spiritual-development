@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
-import Reviews from './pages/Reviews';
+import SuccessGuide from './pages/SuccessGuide';
 import FAQ from './pages/FAQ';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/success-guide" element={<SuccessGuide />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
       </main>
