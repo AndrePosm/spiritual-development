@@ -37,8 +37,21 @@ function Header({ darkMode, setDarkMode }) {
         </Typography>
 
         {/* Theme toggle button */}
-        <IconButton onClick={handleThemeToggle} color="inherit">
-          {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+        <IconButton
+          onClick={handleThemeToggle}
+          color="inherit"
+          sx={{
+           marginRight: '16px', // Add spacing between the toggle button and "BECOME A CHAMPION" button
+           backgroundColor: darkMode ? '#fff' : '#607d8b', // Background color based on theme
+           color: darkMode ? '#607d8b' : '#fff', // Icon color based on theme
+           '&:hover': {
+            backgroundColor: darkMode ? '#ccc' : '#455a64', // Change background on hover
+           },
+           borderRadius: '50%', // Round button shape
+           padding: '8px', // Increase button size slightly
+          }}
+        >
+        {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
 
         {/* Become a Champion button */}
