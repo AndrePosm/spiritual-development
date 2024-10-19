@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
+/* Стиль для бокового меню */
+.sidebar {
+  background-color: #f8f9fa; /* Светлый фон для бокового меню */
+  width: 250px; /* Ширина бокового меню */
+  height: 100vh; /* Высота на весь экран */
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Тень для визуального разделения */
+  position: fixed; /* Зафиксировано слева */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Убираем маркеры списка */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Отступы между пунктами */
+.sidebar li {
+  margin-bottom: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Ссылка на странице (стиль для текста) */
+.sidebar li a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #333; /* Цвет текста */
+  font-size: 18px; /* Размер шрифта */
+  display: flex; /* Для выравнивания иконки с текстом */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Плавная анимация */
 }
 
-.App-link {
-  color: #61dafb;
+/* Стиль при наведении на ссылку */
+.sidebar li a:hover {
+  background-color: #e0f7fa; /* Цвет фона при наведении */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Иконка в ссылке */
+.sidebar li a .icon {
+  margin-right: 10px; /* Отступ между иконкой и текстом */
+  font-size: 24px; /* Размер иконки */
 }

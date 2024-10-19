@@ -11,6 +11,7 @@ import BreathBobble from './pages/BreathBobble';
 import TestAndLearn from './pages/TestAndLearn';
 import SuccessGuide from './pages/SuccessGuide';
 import FAQ from './pages/FAQ';
+import './App.css';
 
 function App() {
   // Load the theme from localStorage or set it to light by default
