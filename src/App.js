@@ -32,12 +32,21 @@ function App() {
     },
   });
 
+  // State to manage the sidebar visibility
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Function to toggle sidebar open/close
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline /> {/* This will apply the theme styles across the app */}
       <Router>
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} /> {/* Passing theme state to Header */}
-        <Sidebar />
+        {/* Pass menu state and toggle function to Header and Sidebar */}
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} toggleMenu={toggleMenu} menuOpen={menuOpen} />
+        <Sidebar menuOpen={menuOpen} toggleMenu={toggleMenu} />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

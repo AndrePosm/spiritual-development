@@ -1,49 +1,60 @@
-/* Sidebar styling */
+/* Sidebar styles */
 .sidebar {
-  background-color: #f8f9fa; /* Light background color for the sidebar */
-  width: 250px; /* Width of the sidebar */
-  height: 100vh; /* Full screen height */
+  background-color: #f8f9fa;
+  width: 250px;
+  height: calc(100vh - 64px); /* Subtract height of header */
+  position: fixed;
+  top: 64px; /* Open below the header */
+  left: -250px; /* Off-screen initially */
   padding-top: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow for visual separation */
-  position: fixed; /* Fixed position on the left */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 1000; /* Ensure it stays on top of the content */
 }
 
-/* Remove list markers */
+.sidebar.open {
+  left: 0; /* Slide-in when open */
+}
+
 .sidebar ul {
   list-style-type: none;
   padding: 0;
 }
 
-/* Spacing between items */
 .sidebar li {
   margin-bottom: 15px;
 }
 
-/* Link styling (text style) */
 .sidebar li a {
-  text-decoration: none; /* Remove underline */
-  color: #333; /* Text color */
-  font-size: 18px; /* Font size */
-  display: flex; /* Align icon and text horizontally */
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: flex;
   align-items: center;
   padding: 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Smooth hover animation */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover effect for links */
+/* Hover effect */
 .sidebar li a:hover {
-  background-color: #e0f7fa; /* Background color on hover */
+  background-color: #e0f7fa;
+  color: #005662;
 }
 
-/* Icon styling inside the link */
+/* Icon styles */
 .sidebar li a .icon {
-  margin-right: 10px; /* Space between icon and text */
-  font-size: 24px; /* Icon size */
+  margin-right: 10px;
+  font-size: 24px;
 }
 
-/* Main content layout */
-main {
-  margin-left: 270px; /* Adjust to prevent content overlaying the sidebar */
-  padding: 20px;
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar li a {
+    font-size: 16px;
+  }
 }
