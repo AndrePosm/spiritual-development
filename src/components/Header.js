@@ -1,46 +1,81 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, IconButton } from '@mui/material';
+import { Icon } from '@iconify/react';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close'; // Icon for close
+import CloseIcon from '@mui/icons-material/Close';
 
 function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
-  // Toggle theme (light/dark)
+  // Переключение темы
   const handleThemeToggle = () => {
     setDarkMode(!darkMode);
   };
 
   return (
-    <header>
-      <AppBar position="static" style={{ backgroundColor: darkMode ? '#333' : '#e0f7fa', boxShadow: 'none' }}>
-        <Toolbar style={{ justifyContent: 'space-between' }}>
-          {/* Menu icon that changes to a cross when menu is open */}
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={toggleMenu} // Trigger toggleMenu from App.js
-            style={{ marginRight: '10px' }}
-          >
-            {menuOpen ? <CloseIcon /> : <MenuIcon />} {/* Change icon based on menu state */}
-          </IconButton>
-
-          {/* Title centered */}
-          <Typography
-            variant="h6"
-            component="div"
+    <AppBar position="static" style={{ backgroundColor: darkMode ? '#333' : '#e0f7fa' }}>
+      <Toolbar style={{ justifyContent: 'space-between' }}>
+        
+        {/* Объединение иконки и меню */}
+        <div 
+          onClick={toggleMenu}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            padding: '5px 10px', // Увеличение зоны клика
+            borderRadius: '8px', // Сделаем область интерактивной
+            '&:hover': {
+              backgroundColor: darkMode ? '#555' : '#d0f7fa',
+            },
+          }}
+        >
+          {/* Иконка с эффектом наведения */}
+          <Icon
+            icon="openmoji:sunrise"
+            width="40"
+            height="40"
             style={{
-              flexGrow: 1,
-              textAlign: 'center',
-              color: darkMode ? '#fff' : '#333',
-              fontWeight: 'bold',
+              marginRight: '10px',
+              transition: 'transform 0.3s, filter 0.3s',
             }}
-          >
-            Spiritual Development Program
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.2)';
+              e.currentTarget.style.filter = 'brightness(1.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.filter = 'brightness(1)';
+            }}
+          />
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
+          </IconButton>
+          <Typography style={{ color: darkMode ? '#fff' : '#333', marginLeft: '5px' }}>
+            MENU
           </Typography>
+        </div>
 
-          {/* Theme toggle button */}
+        {/* Заголовок по центру */}
+        <Typography
+          variant="h6"
+          component="div"
+          style={{
+            flexGrow: 1,
+            textAlign: 'center',
+            color: darkMode ? '#fff' : '#333',
+            fontWeight: 'bold',
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        >
+          Spiritual Development Program
+        </Typography>
+
+        {/* Переключатель темы и кнопка "Become a Champion" */}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <IconButton
             onClick={handleThemeToggle}
             color="inherit"
@@ -57,8 +92,6 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
           >
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
-
-          {/* Become a Champion button */}
           <Button
             variant="contained"
             style={{
@@ -74,9 +107,9 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
           >
             BECOME A CHAMPION
           </Button>
-        </Toolbar>
-      </AppBar>
-    </header>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 
