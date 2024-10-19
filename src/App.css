@@ -1,43 +1,49 @@
-/* Стиль для бокового меню */
+/* Sidebar styling */
 .sidebar {
-  background-color: #f8f9fa; /* Светлый фон для бокового меню */
-  width: 250px; /* Ширина бокового меню */
-  height: 100vh; /* Высота на весь экран */
+  background-color: #f8f9fa; /* Light background color for the sidebar */
+  width: 250px; /* Width of the sidebar */
+  height: 100vh; /* Full screen height */
   padding-top: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Тень для визуального разделения */
-  position: fixed; /* Зафиксировано слева */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow for visual separation */
+  position: fixed; /* Fixed position on the left */
 }
 
-/* Убираем маркеры списка */
+/* Remove list markers */
 .sidebar ul {
   list-style-type: none;
   padding: 0;
 }
 
-/* Отступы между пунктами */
+/* Spacing between items */
 .sidebar li {
   margin-bottom: 15px;
 }
 
-/* Ссылка на странице (стиль для текста) */
+/* Link styling (text style) */
 .sidebar li a {
-  text-decoration: none; /* Убираем подчеркивание */
-  color: #333; /* Цвет текста */
-  font-size: 18px; /* Размер шрифта */
-  display: flex; /* Для выравнивания иконки с текстом */
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Text color */
+  font-size: 18px; /* Font size */
+  display: flex; /* Align icon and text horizontally */
   align-items: center;
   padding: 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Плавная анимация */
+  transition: background-color 0.3s ease; /* Smooth hover animation */
 }
 
-/* Стиль при наведении на ссылку */
+/* Hover effect for links */
 .sidebar li a:hover {
-  background-color: #e0f7fa; /* Цвет фона при наведении */
+  background-color: #e0f7fa; /* Background color on hover */
 }
 
-/* Иконка в ссылке */
+/* Icon styling inside the link */
 .sidebar li a .icon {
-  margin-right: 10px; /* Отступ между иконкой и текстом */
-  font-size: 24px; /* Размер иконки */
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 24px; /* Icon size */
+}
+
+/* Main content layout */
+main {
+  margin-left: 270px; /* Adjust to prevent content overlaying the sidebar */
+  padding: 20px;
 }
