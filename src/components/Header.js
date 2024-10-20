@@ -47,7 +47,7 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
               cursor: 'pointer',
               padding: '8px',
               border: '1px solid transparent',
-              borderRadius: '8px',
+              borderRadius: '0px',
               transition: 'all 0.3s ease',
               backgroundColor: 'transparent', // Make sure no background color appears
               borderColor: menuOpen ? '#999' : 'transparent', // Keep border color only when open
