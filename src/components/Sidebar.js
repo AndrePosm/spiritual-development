@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
-function Sidebar({ menuOpen, toggleMenu }) {
+function Sidebar({ menuOpen, toggleMenu, darkMode }) {
   return (
     <div>
       {/* Sidebar menu with smooth transition */}
-      <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
+      <div className={`sidebar ${menuOpen ? 'open' : ''} ${darkMode ? 'dark-mode' : ''}`}>
         <ul>
           <li>
             <Link to="/" onClick={toggleMenu}>

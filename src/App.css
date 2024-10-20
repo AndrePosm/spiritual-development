@@ -1,13 +1,13 @@
 /* Sidebar styles */
 .sidebar {
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; /* Light mode background */
   width: 250px;
   position: fixed;
   top: 64px; /* Open below the header */
   left: -250px; /* Off-screen initially */
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: left 0.3s ease-in-out; /* Smooth transition with ease-in-out */
+  transition: left 0.3s ease-in-out, background-color 0.3s ease; /* Smooth transition */
   z-index: 1000; /* Ensure it stays on top of the content */
   height: auto; /* Height based on the content */
   max-height: calc(100vh - 64px); /* Ensure it does not exceed the screen height */
@@ -33,7 +33,7 @@
 /* Link styles inside list items */
 .sidebar li a {
   text-decoration: none;
-  color: #333;
+  color: #333; /* Light mode text */
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -56,18 +56,19 @@
 
 /* Dark mode for sidebar */
 .dark-mode .sidebar {
-  background-color: #333;
+  background-color: #1e1e1e; /* Darker background in dark mode */
+  color: #ddd; /* Light text in dark mode */
 }
 
 /* Dark mode link styles */
 .dark-mode .sidebar li a {
-  color: #fff;
+  color: #ddd; /* Light text in dark mode */
 }
 
 /* Dark mode hover effect for links */
 .dark-mode .sidebar li a:hover {
-  background-color: #444;
-  color: #fff;
+  background-color: #444; /* Dark hover background */
+  color: #fff; /* White text on hover */
 }
 
 /* Menu button wrapper styles */
@@ -129,4 +130,17 @@
 /* Hide the sidebar when menu is closed */
 .sidebar.hidden {
   left: -250px;
+}
+
+/* Dark mode for the entire body */
+.dark-mode body, .dark-mode .sidebar {
+  background-color: #121212; /* Dark mode body background */
+  color: #fff; /* Dark mode text color */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode for header and footer */
+.dark-mode header, .dark-mode footer {
+  background-color: #1e1e1e; /* Dark background for header/footer */
+  color: #fff; /* White text */
 }

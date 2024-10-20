@@ -38,21 +38,25 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} menuOpen={menuOpen} toggleMenu={toggleMenu} />
-        <Sidebar menuOpen={menuOpen} />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/breath-bobble" element={<BreathBobble />} />
-            <Route path="/test-and-learn" element={<TestAndLearn />} />
-            <Route path="/success-guide" element={<SuccessGuide />} />
-            <Route path="/faq" element={<FAQ />} />
-          </Routes>
-        </main>
-        <Footer />
-      </Router>
+      {/* Добавляем класс dark-mode к основному контейнеру */}
+      <div className={darkMode ? 'dark-mode' : ''}>
+        <Router>
+          <Header darkMode={darkMode} setDarkMode={setDarkMode} menuOpen={menuOpen} toggleMenu={toggleMenu} />
+          {/* Передаем darkMode в Sidebar */}
+          <Sidebar menuOpen={menuOpen} darkMode={darkMode} toggleMenu={toggleMenu} />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/breath-bobble" element={<BreathBobble />} />
+              <Route path="/test-and-learn" element={<TestAndLearn />} />
+              <Route path="/success-guide" element={<SuccessGuide />} />
+              <Route path="/faq" element={<FAQ />} />
+            </Routes>
+          </main>
+          <Footer />
+        </Router>
+      </div>
     </ThemeProvider>
   );
 }
