@@ -74,12 +74,12 @@
 }
 
 .menu-button-wrapper:hover {
-  background-color: #f0f0f0; /* Light theme hover */
+  background-color: transparent !important;
   border-color: #333;
 }
 
 .dark-mode .menu-button-wrapper:hover {
-  background-color: #555; /* Dark theme hover */
+  background-color: transparent !important;
   border-color: #ccc;
 }
 
