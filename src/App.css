@@ -27,6 +27,7 @@
   margin-bottom: 15px;
 }
 
+/* Link styles inside list items */
 .sidebar li a {
   text-decoration: none;
   color: #333;
@@ -35,14 +36,17 @@
   align-items: center;
   padding: 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease; /* Added padding-left transition */
 }
 
+/* Hover effect for links with slight text shift */
 .sidebar li a:hover {
   background-color: #e0f7fa;
   color: #005662;
+  padding-left: 20px; /* Shift text to the right when hovered */
 }
 
+/* Icon styles inside links */
 .sidebar li a .icon {
   margin-right: 10px;
   font-size: 24px;
@@ -53,13 +57,16 @@
   background-color: #1e1e1e;
 }
 
+/* Dark mode link styles */
 .dark-mode .sidebar li a {
   color: #ddd;
 }
 
+/* Dark mode hover effect for links with text shift */
 .dark-mode .sidebar li a:hover {
   background-color: #444;
   color: #fff;
+  padding-left: 20px; /* Shift text to the right when hovered in dark mode */
 }
 
 /* Menu button wrapper styles */
