@@ -26,7 +26,7 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
               transition: 'transform 0.3s, filter 0.3s',
               cursor: 'pointer',
             }}
-            onClick={() => window.location.href = '/'} // Navigate to homepage on click
+            onClick={() => window.location.href = '/'}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'scale(1.2)';
               e.currentTarget.style.filter = 'brightness(1.5)';
@@ -40,7 +40,7 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
           {/* Menu block with icon and text */}
           <div
             onClick={toggleMenu}
-            className={`menu-button-wrapper ${darkMode ? 'dark-mode' : ''}`} // Styles for the menu block
+            className={`menu-button-wrapper ${darkMode ? 'dark-mode' : ''}`}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -49,17 +49,15 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
               border: '1px solid transparent',
               borderRadius: '8px',
               transition: 'all 0.3s ease',
-              backgroundColor: menuOpen ? (darkMode ? '#555' : '#f0f0f0') : 'transparent',
-              borderColor: menuOpen ? '#999' : 'transparent',
+              backgroundColor: 'transparent', // Make sure no background color appears
+              borderColor: menuOpen ? '#999' : 'transparent', // Keep border color only when open
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = darkMode ? '#555' : '#f0f0f0';
-              e.currentTarget.style.borderColor = '#999';
+              e.currentTarget.style.borderColor = darkMode ? '#ccc' : '#333'; // Show border on hover
             }}
             onMouseLeave={(e) => {
               if (!menuOpen) {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.borderColor = 'transparent';
+                e.currentTarget.style.borderColor = 'transparent'; // Remove border when not hovered or opened
               }
             }}
           >
