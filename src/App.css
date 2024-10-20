@@ -8,17 +8,18 @@
   left: -250px; /* Off-screen initially */
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: left 0.3s ease;
+  transition: left 0.3s ease-in-out; /* Smooth transition with ease-in-out */
   z-index: 1000; /* Ensure it stays on top of the content */
 }
 
 .sidebar.open {
-  left: 0; /* Slide-in when open */
+  left: 0; /* When open, slide in */
 }
 
 .sidebar ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar li {
@@ -36,25 +37,84 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover effect */
 .sidebar li a:hover {
   background-color: #e0f7fa;
   color: #005662;
 }
 
-/* Icon styles */
 .sidebar li a .icon {
   margin-right: 10px;
   font-size: 24px;
 }
 
-/* For mobile responsiveness */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-  }
+/* Dark mode styles */
+.dark-mode .sidebar {
+  background-color: #333;
+}
 
-  .sidebar li a {
-    font-size: 16px;
-  }
+.dark-mode .sidebar li a {
+  color: #fff;
+}
+
+.dark-mode .sidebar li a:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Styles for the menu button wrapper */
+.menu-button-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: transparent; /* Start with no background */
+}
+
+.menu-button-wrapper:hover {
+  background-color: #f0f0f0; /* Light theme hover */
+  border-color: #333;
+}
+
+.dark-mode .menu-button-wrapper:hover {
+  background-color: #555; /* Dark theme hover */
+  border-color: #ccc;
+}
+
+.menu-button-wrapper .menu-button-icon {
+  margin-right: 8px;
+  color: #333;
+  font-size: 24px;
+}
+
+.dark-mode .menu-button-wrapper .menu-button-icon {
+  color: #fff;
+}
+
+.menu-button-wrapper .menu-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.dark-mode .menu-button-wrapper .menu-text {
+  color: #fff;
+}
+
+/* Ensure the centered title does not overlap */
+.centered-title {
+  text-align: center;
+  flex-grow: 1;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: inherit;
+}
+
+/* Hide the sidebar when menu is closed */
+.sidebar.hidden {
+  left: -250px;
 }

@@ -7,31 +7,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
-  // Переключение темы
   const handleThemeToggle = () => {
     setDarkMode(!darkMode);
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: darkMode ? '#333' : '#e0f7fa' }}>
-      <Toolbar style={{ justifyContent: 'space-between' }}>
+    <AppBar position="static" style={{ backgroundColor: darkMode ? '#333' : '#e0f7fa', boxShadow: 'none' }}>
+      <Toolbar style={{ justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
         
-        {/* Объединение иконки и меню */}
-        <div 
-          onClick={toggleMenu}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            padding: '5px 10px', // Увеличение зоны клика
-            borderRadius: '8px', // Сделаем область интерактивной
-            '&:hover': {
-              backgroundColor: darkMode ? '#555' : '#d0f7fa',
-            },
-          }}
-        >
-          {/* Иконка с эффектом наведения */}
+        {/* Sunrise icon with hover effect */}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <Icon
             icon="openmoji:sunrise"
             width="40"
@@ -39,7 +24,9 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
             style={{
               marginRight: '10px',
               transition: 'transform 0.3s, filter 0.3s',
+              cursor: 'pointer',
             }}
+            onClick={() => window.location.href = '/'} // Navigate to homepage on click
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'scale(1.2)';
               e.currentTarget.style.filter = 'brightness(1.5)';
@@ -49,32 +36,70 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
               e.currentTarget.style.filter = 'brightness(1)';
             }}
           />
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            {menuOpen ? <CloseIcon /> : <MenuIcon />}
-          </IconButton>
-          <Typography style={{ color: darkMode ? '#fff' : '#333', marginLeft: '5px' }}>
-            MENU
-          </Typography>
+
+          {/* Menu block with icon and text */}
+          <div
+            onClick={toggleMenu}
+            className={`menu-button-wrapper ${darkMode ? 'dark-mode' : ''}`} // Styles for the menu block
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              cursor: 'pointer',
+              padding: '8px',
+              border: '1px solid transparent',
+              borderRadius: '8px',
+              transition: 'all 0.3s ease',
+              backgroundColor: menuOpen ? (darkMode ? '#555' : '#f0f0f0') : 'transparent',
+              borderColor: menuOpen ? '#999' : 'transparent',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = darkMode ? '#555' : '#f0f0f0';
+              e.currentTarget.style.borderColor = '#999';
+            }}
+            onMouseLeave={(e) => {
+              if (!menuOpen) {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.borderColor = 'transparent';
+              }
+            }}
+          >
+            {menuOpen ? (
+              <CloseIcon style={{ fontSize: '24px', marginRight: '8px', color: darkMode ? '#fff' : '#333' }} />
+            ) : (
+              <MenuIcon style={{ fontSize: '24px', marginRight: '8px', color: darkMode ? '#fff' : '#333' }} />
+            )}
+            <Typography
+              variant="h6"
+              component="div"
+              style={{
+                color: darkMode ? '#fff' : '#333',
+                fontSize: '16px',
+                fontWeight: 'bold',
+                transition: 'color 0.3s ease',
+              }}
+            >
+              MENU
+            </Typography>
+          </div>
         </div>
 
-        {/* Заголовок по центру */}
+        {/* Centered title */}
         <Typography
           variant="h6"
           component="div"
           style={{
-            flexGrow: 1,
             textAlign: 'center',
-            color: darkMode ? '#fff' : '#333',
-            fontWeight: 'bold',
             position: 'absolute',
             left: '50%',
             transform: 'translateX(-50%)',
+            color: darkMode ? '#fff' : '#333',
+            fontWeight: 'bold',
           }}
         >
           Spiritual Development Program
         </Typography>
 
-        {/* Переключатель темы и кнопка "Become a Champion" */}
+        {/* Theme toggle button and "Become a Champion" button */}
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <IconButton
             onClick={handleThemeToggle}
@@ -92,6 +117,7 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
           >
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
+
           <Button
             variant="contained"
             style={{

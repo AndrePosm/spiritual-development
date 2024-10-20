@@ -14,39 +14,33 @@ import FAQ from './pages/FAQ';
 import './App.css';
 
 function App() {
-  // Load the theme from localStorage or set it to light by default
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('darkMode');
     return savedTheme ? JSON.parse(savedTheme) : false;
   });
 
-  // Save the current theme mode in localStorage whenever it changes
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // Create a theme based on the current mode (dark or light)
   const theme = createTheme({
     palette: {
       mode: darkMode ? 'dark' : 'light',
     },
   });
 
-  // State to manage the sidebar visibility
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  // Function to toggle sidebar open/close
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* This will apply the theme styles across the app */}
+      <CssBaseline />
       <Router>
-        {/* Pass menu state and toggle function to Header and Sidebar */}
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} toggleMenu={toggleMenu} menuOpen={menuOpen} />
-        <Sidebar menuOpen={menuOpen} toggleMenu={toggleMenu} />
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} menuOpen={menuOpen} toggleMenu={toggleMenu} />
+        <Sidebar menuOpen={menuOpen} />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
