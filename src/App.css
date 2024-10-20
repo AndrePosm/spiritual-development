@@ -2,7 +2,6 @@
 .sidebar {
   background-color: #f8f9fa;
   width: 250px;
-  height: calc(100vh - 64px); /* Subtract height of header */
   position: fixed;
   top: 64px; /* Open below the header */
   left: -250px; /* Off-screen initially */
@@ -10,22 +9,28 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transition: left 0.3s ease-in-out; /* Smooth transition with ease-in-out */
   z-index: 1000; /* Ensure it stays on top of the content */
+  height: auto; /* Height based on the content */
+  max-height: calc(100vh - 64px); /* Ensure it does not exceed the screen height */
 }
 
+/* Sidebar when open */
 .sidebar.open {
   left: 0; /* When open, slide in */
 }
 
+/* Unordered list styles */
 .sidebar ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
+/* List item styles */
 .sidebar li {
   margin-bottom: 15px;
 }
 
+/* Link styles inside list items */
 .sidebar li a {
   text-decoration: none;
   color: #333;
@@ -37,31 +42,35 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Hover effect for links */
 .sidebar li a:hover {
   background-color: #e0f7fa;
   color: #005662;
 }
 
+/* Icon styles inside links */
 .sidebar li a .icon {
   margin-right: 10px;
   font-size: 24px;
 }
 
-/* Dark mode styles */
+/* Dark mode for sidebar */
 .dark-mode .sidebar {
   background-color: #333;
 }
 
+/* Dark mode link styles */
 .dark-mode .sidebar li a {
   color: #fff;
 }
 
+/* Dark mode hover effect for links */
 .dark-mode .sidebar li a:hover {
   background-color: #444;
   color: #fff;
 }
 
-/* Styles for the menu button wrapper */
+/* Menu button wrapper styles */
 .menu-button-wrapper {
   display: flex;
   align-items: center;
@@ -73,16 +82,19 @@
   background-color: transparent; /* Start with no background */
 }
 
+/* Hover effect for menu button (transparent) */
 .menu-button-wrapper:hover {
   background-color: transparent !important;
   border-color: #333;
 }
 
+/* Dark mode hover effect for menu button (transparent) */
 .dark-mode .menu-button-wrapper:hover {
   background-color: transparent !important;
   border-color: #ccc;
 }
 
+/* Icon styles inside menu button */
 .menu-button-wrapper .menu-button-icon {
   margin-right: 8px;
   color: #333;
