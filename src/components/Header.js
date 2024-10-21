@@ -3,73 +3,135 @@ import { AppBar, Toolbar, Typography, Button, IconButton } from '@mui/material';
 import { Icon } from '@iconify/react';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
-function Header({ darkMode, setDarkMode }) {
+function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
   const handleThemeToggle = () => {
-    setDarkMode(!darkMode); // Toggle the theme mode
+    setDarkMode(!darkMode);
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: darkMode ? '#333' : '#e0f7fa' }}>
-      <Toolbar>
-        {/* Icon with hover effect */}
-        <Icon
-          icon="openmoji:sunrise"
-          width="40"
-          height="40"
+    <AppBar position="static" style={{ backgroundColor: darkMode ? '#333' : '#e0f7fa', boxShadow: 'none' }}>
+      <Toolbar style={{ justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
+        
+        {/* Sunrise icon with hover effect */}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Icon
+            icon="openmoji:sunrise"
+            width="40"
+            height="40"
+            style={{
+              marginRight: '10px',
+              transition: 'transform 0.3s, filter 0.3s',
+              cursor: 'pointer',
+            }}
+            onClick={() => window.location.href = '/'}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.2)';
+              e.currentTarget.style.filter = 'brightness(1.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.filter = 'brightness(1)';
+            }}
+          />
+
+          {/* Menu block with icon and text */}
+          <div
+            onClick={toggleMenu}
+            className={`menu-button-wrapper ${darkMode ? 'dark-mode' : ''}`}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              cursor: 'pointer',
+              padding: '8px',
+              border: '1px solid transparent',
+              borderRadius: '0px',
+              transition: 'all 0.3s ease',
+              backgroundColor: 'transparent', // Make sure no background color appears
+              borderColor: menuOpen ? '#999' : 'transparent', // Keep border color only when open
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = darkMode ? '#ccc' : '#333'; // Show border on hover
+            }}
+            onMouseLeave={(e) => {
+              if (!menuOpen) {
+                e.currentTarget.style.borderColor = 'transparent'; // Remove border when not hovered or opened
+              }
+            }}
+          >
+            {menuOpen ? (
+              <CloseIcon style={{ fontSize: '24px', marginRight: '8px', color: darkMode ? '#fff' : '#333' }} />
+            ) : (
+              <MenuIcon style={{ fontSize: '24px', marginRight: '8px', color: darkMode ? '#fff' : '#333' }} />
+            )}
+            <Typography
+              variant="h6"
+              component="div"
+              style={{
+                color: darkMode ? '#fff' : '#333',
+                fontSize: '16px',
+                fontWeight: 'bold',
+                transition: 'color 0.3s ease',
+              }}
+            >
+              MENU
+            </Typography>
+          </div>
+        </div>
+
+        {/* Centered title */}
+        <Typography
+          variant="h6"
+          component="div"
           style={{
-            marginRight: '10px',
-            transition: 'transform 0.3s, filter 0.3s',
+            textAlign: 'center',
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            color: darkMode ? '#fff' : '#333',
+            fontWeight: 'bold',
           }}
-          onClick={() => window.location.href = '/'} // Go to home page on click
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.2)';
-            e.currentTarget.style.filter = 'brightness(1.5)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.filter = 'brightness(1)';
-          }}
-        />
-        {/* Title */}
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{ color: darkMode ? '#fff' : '#333' }}>
+        >
           Spiritual Development Program
         </Typography>
 
-        {/* Theme toggle button */}
-        <IconButton
-          onClick={handleThemeToggle}
-          color="inherit"
-          sx={{
-           marginRight: '16px', // Add spacing between the toggle button and "BECOME A CHAMPION" button
-           backgroundColor: darkMode ? '#fff' : '#607d8b', // Background color based on theme
-           color: darkMode ? '#607d8b' : '#fff', // Icon color based on theme
-           '&:hover': {
-            backgroundColor: darkMode ? '#ccc' : '#455a64', // Change background on hover
-           },
-           borderRadius: '50%', // Round button shape
-           padding: '8px', // Increase button size slightly
-          }}
-        >
-        {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+        {/* Theme toggle button and "Become a Champion" button */}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <IconButton
+            onClick={handleThemeToggle}
+            color="inherit"
+            sx={{
+              marginRight: '16px',
+              backgroundColor: darkMode ? '#fff' : '#607d8b',
+              color: darkMode ? '#607d8b' : '#fff',
+              '&:hover': {
+                backgroundColor: darkMode ? '#ccc' : '#455a64',
+              },
+              borderRadius: '50%',
+              padding: '8px',
+            }}
+          >
+            {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
 
-        {/* Become a Champion button */}
-        <Button
-          variant="contained"
-          style={{
-            backgroundColor: '#607d8b',
-            color: '#fff',
-            borderRadius: '20px',
-            padding: '5px 15px',
-            fontSize: '0.875rem',
-            transition: 'transform 0.3s ease',
-          }}
-          onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
-          onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-        >
-          BECOME A CHAMPION
-        </Button>
+          <Button
+            variant="contained"
+            style={{
+              backgroundColor: '#607d8b',
+              color: '#fff',
+              borderRadius: '20px',
+              padding: '5px 15px',
+              fontSize: '0.875rem',
+              transition: 'transform 0.3s ease',
+            }}
+            onMouseEnter={(e) => (e.target.style.transform = 'scale(1.1)')}
+            onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
+          >
+            BECOME A CHAMPION
+          </Button>
+        </div>
       </Toolbar>
     </AppBar>
   );

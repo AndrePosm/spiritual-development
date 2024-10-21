@@ -1,52 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Tooltip from '@mui/material/Tooltip';
+import { Icon } from '@iconify/react';
 
-// Define a function for shared Tooltip styles
-const tooltipStyles = {
-  backgroundColor: 'transparent', // Transparent background
-  border: '1px solid #ccf2e5',        // Thin gray border
-  color: '#666',                   // Gray text color
-  padding: '8px',
-  borderRadius: '4px',
-  boxShadow: 'none',               // No shadow
-  marginLeft: '8px',               // Add margin to the left to avoid overlap
-};
-
-function Sidebar() {
+function Sidebar({ menuOpen, toggleMenu, darkMode }) {
   return (
-    <ul>
-      <li>
-        <Tooltip title="Go to the home page" placement="right" componentsProps={{ tooltip: { sx: tooltipStyles } }}>
-          <Link to="/">Home</Link>
-        </Tooltip>
-      </li>
-      <li>
-        <Tooltip title="Explore our courses" placement="right" componentsProps={{ tooltip: { sx: tooltipStyles } }}>
-          <Link to="/courses">Courses</Link>
-        </Tooltip>
-      </li>
-      <li>
-        <Tooltip title="Free guided breathing tool" placement="right" componentsProps={{ tooltip: { sx: tooltipStyles } }}>
-          <Link to="/breath-bobble">Breath Bobble</Link>
-        </Tooltip>
-      </li>
-      <li>
-        <Tooltip title="Test and gain new knowledge" placement="right" componentsProps={{ tooltip: { sx: tooltipStyles } }}>
-          <Link to="/test-learn">Test and Learn</Link>
-        </Tooltip>
-      </li>
-      <li>
-        <Tooltip title="A book to achieve goals and build your career" placement="right" componentsProps={{ tooltip: { sx: tooltipStyles } }}>
-          <Link to="/success-guide">Success Guide</Link>
-        </Tooltip>
-      </li>
-      <li>
-        <Tooltip title="Get answers here" placement="right" componentsProps={{ tooltip: { sx: tooltipStyles } }}>
-          <Link to="/faq">FAQ</Link>
-        </Tooltip>
-      </li>
-    </ul>
+    <div>
+      {/* Sidebar menu with smooth transition */}
+      <div className={`sidebar ${menuOpen ? 'open' : ''} ${darkMode ? 'dark-mode' : ''}`}>
+        <ul>
+          <li>
+            <Link to="/" onClick={toggleMenu}>
+              <Icon icon="material-symbols:home" className="icon" />
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/courses" onClick={toggleMenu}>
+              <Icon icon="material-symbols:book" className="icon" />
+              Courses
+            </Link>
+          </li>
+          <li>
+            <Link to="/breath-bobble" onClick={toggleMenu}>
+              <Icon icon="mdi:meditation" className="icon" />
+              Breath Bobble
+            </Link>
+          </li>
+          <li>
+            <Link to="/test-and-learn" onClick={toggleMenu}>
+              <Icon icon="material-symbols:quiz" className="icon" />
+              Test and Learn
+            </Link>
+          </li>
+          <li>
+            <Link to="/success-guide" onClick={toggleMenu}>
+              <Icon icon="mdi:flag-checkered" className="icon" />
+              Success Guide
+            </Link>
+          </li>
+          <li>
+            <Link to="/faq" onClick={toggleMenu}>
+              <Icon icon="mdi:help-circle-outline" className="icon" />
+              FAQ
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 }
 

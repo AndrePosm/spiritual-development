@@ -11,20 +11,24 @@ import BreathBobble from './pages/BreathBobble';
 import TestAndLearn from './pages/TestAndLearn';
 import SuccessGuide from './pages/SuccessGuide';
 import FAQ from './pages/FAQ';
+import './App.css';
 
 function App() {
-  // Load the theme from localStorage or set it to light by default
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('darkMode');
     return savedTheme ? JSON.parse(savedTheme) : false;
   });
 
-  // Save the current theme mode in localStorage whenever it changes
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // Create a theme based on the current mode (dark or light)
   const theme = createTheme({
     palette: {
       mode: darkMode ? 'dark' : 'light',
@@ -33,22 +37,26 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* This will apply the theme styles across the app */}
-      <Router>
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} /> {/* Passing theme state to Header */}
-        <Sidebar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/breath-bobble" element={<BreathBobble />} />
-            <Route path="/test-and-learn" element={<TestAndLearn />} />
-            <Route path="/success-guide" element={<SuccessGuide />} />
-            <Route path="/faq" element={<FAQ />} />
-          </Routes>
-        </main>
-        <Footer />
-      </Router>
+      <CssBaseline />
+      {/* Добавляем класс dark-mode к основному контейнеру */}
+      <div className={darkMode ? 'dark-mode' : ''}>
+        <Router>
+          <Header darkMode={darkMode} setDarkMode={setDarkMode} menuOpen={menuOpen} toggleMenu={toggleMenu} />
+          {/* Передаем darkMode в Sidebar */}
+          <Sidebar menuOpen={menuOpen} darkMode={darkMode} toggleMenu={toggleMenu} />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/breath-bobble" element={<BreathBobble />} />
+              <Route path="/test-and-learn" element={<TestAndLearn />} />
+              <Route path="/success-guide" element={<SuccessGuide />} />
+              <Route path="/faq" element={<FAQ />} />
+            </Routes>
+          </main>
+          <Footer />
+        </Router>
+      </div>
     </ThemeProvider>
   );
 }
