@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
+  // Function to toggle dark mode
   const handleThemeToggle = () => {
     setDarkMode(!darkMode);
   };
@@ -26,7 +27,7 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
               transition: 'transform 0.3s, filter 0.3s',
               cursor: 'pointer',
             }}
-            onClick={() => window.location.href = '/'}
+            onClick={() => window.location.href = '/'} // Navigate to homepage on click
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'scale(1.2)';
               e.currentTarget.style.filter = 'brightness(1.5)';
@@ -40,24 +41,26 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
           {/* Menu block with icon and text */}
           <div
             onClick={toggleMenu}
-            className={`menu-button-wrapper ${darkMode ? 'dark-mode' : ''}`}
+            className={`menu-button-wrapper ${darkMode ? 'dark-mode' : ''}`} // Add dark mode class
             style={{
               display: 'flex',
               alignItems: 'center',
               cursor: 'pointer',
               padding: '8px',
               border: '1px solid transparent',
-              borderRadius: '0px',
+              borderRadius: '8px',
               transition: 'all 0.3s ease',
-              backgroundColor: 'transparent', // Make sure no background color appears
-              borderColor: menuOpen ? '#999' : 'transparent', // Keep border color only when open
+              backgroundColor: menuOpen ? (darkMode ? '#555' : '#f0f0f0') : 'transparent',
+              borderColor: menuOpen ? '#999' : 'transparent',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = darkMode ? '#ccc' : '#333'; // Show border on hover
+              e.currentTarget.style.backgroundColor = darkMode ? '#555' : '#f0f0f0';
+              e.currentTarget.style.borderColor = '#999';
             }}
             onMouseLeave={(e) => {
               if (!menuOpen) {
-                e.currentTarget.style.borderColor = 'transparent'; // Remove border when not hovered or opened
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.borderColor = 'transparent';
               }
             }}
           >
@@ -81,9 +84,9 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
           </div>
         </div>
 
-        {/* Centered title */}
+        {/* Centered title with larger and more elegant font */}
         <Typography
-          variant="h6"
+          variant="h1" // Larger text size for the main title
           component="div"
           style={{
             textAlign: 'center',
@@ -92,6 +95,10 @@ function Header({ darkMode, setDarkMode, menuOpen, toggleMenu }) {
             transform: 'translateX(-50%)',
             color: darkMode ? '#fff' : '#333',
             fontWeight: 'bold',
+            fontSize: '3.5rem', // Larger font size
+            letterSpacing: '0.05em',
+            fontFamily: '"Playfair Display", serif', // Adding a serif font for a more classic look
+            lineHeight: '1.2', // Adjust line height for readability
           }}
         >
           Spiritual Development Program
