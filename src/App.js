@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
-import BreathBobble from './pages/BreathBobble';
+import BreathBobble from './pages/BreathBubble';
 import TestAndLearn from './pages/TestAndLearn';
 import SuccessGuide from './pages/SuccessGuide';
 import FAQ from './pages/FAQ';
