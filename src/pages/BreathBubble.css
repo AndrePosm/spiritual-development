@@ -10,8 +10,8 @@
   }
   
   .bubble {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     animation: breathe 4s infinite;

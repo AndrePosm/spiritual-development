@@ -23,7 +23,7 @@ function Sidebar({ menuOpen, toggleMenu, darkMode }) {
           <li>
             <Link to="/breath-bobble" onClick={toggleMenu}>
               <Icon icon="mdi:meditation" className="icon" />
-              Breath Bobble
+              Breath Bubble
             </Link>
           </li>
           <li>
