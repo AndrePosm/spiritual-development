@@ -1,125 +1,125 @@
-/* Sidebar styles */
-.sidebar {
-  background-color: #f8f9fa;
-  width: 250px;
-  position: fixed;
-  top: 64px; /* Open below the header */
-  left: -250px; /* Off-screen initially */
-  padding-top: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: left 0.3s ease-in-out, background-color 0.3s ease;
-  z-index: 1000;
-  height: auto;
-  max-height: calc(100vh - 64px);
-}
+  /* Sidebar styles */
+  .sidebar {
+    background-color: #f8f9fa;
+    width: 250px;
+    position: fixed;
+    top: 64px; /* Open below the header */
+    left: -250px; /* Off-screen initially */
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out, background-color 0.3s ease;
+    z-index: 1000;
+    height: auto;
+    max-height: calc(100vh - 64px);
+  }
 
-.sidebar.open {
-  left: 0;
-}
+  .sidebar.open {
+    left: 0;
+  }
 
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
 
-.sidebar li {
-  margin-bottom: 15px;
-}
+  .sidebar li {
+    margin-bottom: 15px;
+  }
 
-/* Link styles inside list items */
-.sidebar li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease; /* Added padding-left transition */
-}
+  /* Link styles inside list items */
+  .sidebar li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease; /* Added padding-left transition */
+  }
 
-/* Hover effect for links with slight text shift */
-.sidebar li a:hover {
-  background-color: #e0f7fa;
-  color: #005662;
-  padding-left: 20px; /* Shift text to the right when hovered */
-}
+  /* Hover effect for links with slight text shift */
+  .sidebar li a:hover {
+    background-color: #e0f7fa;
+    color: #005662;
+    padding-left: 20px; /* Shift text to the right when hovered */
+  }
 
-/* Icon styles inside links */
-.sidebar li a .icon {
-  margin-right: 10px;
-  font-size: 24px;
-}
+  /* Icon styles inside links */
+  .sidebar li a .icon {
+    margin-right: 10px;
+    font-size: 24px;
+  }
 
-/* Dark mode for sidebar */
-.dark-mode .sidebar {
-  background-color: #1e1e1e;
-}
+  /* Dark mode for sidebar */
+  .dark-mode .sidebar {
+    background-color: #1e1e1e;
+  }
 
-/* Dark mode link styles */
-.dark-mode .sidebar li a {
-  color: #ddd;
-}
+  /* Dark mode link styles */
+  .dark-mode .sidebar li a {
+    color: #ddd;
+  }
 
-/* Dark mode hover effect for links with text shift */
-.dark-mode .sidebar li a:hover {
-  background-color: #444;
-  color: #fff;
-  padding-left: 20px; /* Shift text to the right when hovered in dark mode */
-}
+  /* Dark mode hover effect for links with text shift */
+  .dark-mode .sidebar li a:hover {
+    background-color: #444;
+    color: #fff;
+    padding-left: 20px; /* Shift text to the right when hovered in dark mode */
+  }
 
-/* Menu button wrapper styles */
-.menu-button-wrapper {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 8px;
-  border: 1px solid transparent; /* No border initially */
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background-color: transparent; /* No background initially */
-}
+  /* Menu button wrapper styles */
+  .menu-button-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid transparent; /* No border initially */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: transparent; /* No background initially */
+  }
 
-/* Hover effect: only border, no background fill */
-.menu-button-wrapper:hover {
-  border-color: #333; /* Light mode border */
-  background-color: transparent !important; /* Ensure no background fill */
-}
+  /* Hover effect: only border, no background fill */
+  .menu-button-wrapper:hover {
+    border-color: #333; /* Light mode border */
+    background-color: transparent !important; /* Ensure no background fill */
+  }
 
-.dark-mode .menu-button-wrapper:hover {
-  border-color: #ccc; /* Dark mode border */
-  background-color: transparent !important; /* Ensure no background fill */
-}
+  .dark-mode .menu-button-wrapper:hover {
+    border-color: #ccc; /* Dark mode border */
+    background-color: transparent !important; /* Ensure no background fill */
+  }
 
-/* Active/open state for menu button */
-.menu-button-wrapper.menu-open {
-  border-color: #999 !important; /* Keep the border when menu is open */
-  background-color: transparent !important; /* Ensure no background fill */
-}
+  /* Active/open state for menu button */
+  .menu-button-wrapper.menu-open {
+    border-color: #999 !important; /* Keep the border when menu is open */
+    background-color: transparent !important; /* Ensure no background fill */
+  }
 
-.dark-mode .menu-button-wrapper.menu-open {
-  border-color: #ccc !important; /* Keep the border in dark mode */
-  background-color: transparent !important; /* Ensure no background fill */
-}
+  .dark-mode .menu-button-wrapper.menu-open {
+    border-color: #ccc !important; /* Keep the border in dark mode */
+    background-color: transparent !important; /* Ensure no background fill */
+  }
 
-/* Dark mode button icon and text styles */
-.menu-button-wrapper .menu-button-icon {
-  margin-right: 8px;
-  color: #333;
-  font-size: 24px;
-}
+  /* Dark mode button icon and text styles */
+  .menu-button-wrapper .menu-button-icon {
+    margin-right: 8px;
+    color: #333;
+    font-size: 24px;
+  }
 
-.dark-mode .menu-button-wrapper .menu-button-icon {
-  color: #fff;
-}
+  .dark-mode .menu-button-wrapper .menu-button-icon {
+    color: #fff;
+  }
 
-.menu-button-wrapper .menu-text {
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-}
+  .menu-button-wrapper .menu-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
 
-.dark-mode .menu-button-wrapper .menu-text {
-  color: #fff;
-}
+  .dark-mode .menu-button-wrapper .menu-text {
+    color: #fff;
+  }
